@@ -20,9 +20,9 @@ const config = require('./db/dbconn');
 const conn = mysql.createConnection(config);
 conn.connect();
 
-const register = {
+const join = {
     list: 'select * from register order by id desc',
-    insert : 'insert into register(user_id, password, email, tel, reg_date) values(?, ?, ?, ?, ?)',
+    insert : 'insert into register(name, user_id, password, email, tel, reg_date) values(?, ?, ?, ?, ?, ?)',
     read: 'select * from register where id=?'
 }
 
@@ -58,6 +58,27 @@ const date = moment().format('YYYY-MM-DD HH:mm:ss');
 //첫화면
 app.get('/', (req, res)=>{
     res.render('index');
+})
+
+//회원가입
+app.get('/join', (req, res)=>{
+    res.render('join');
+})
+
+app.post('/join', (req, res)=>{
+    const _name = req.body.name;
+    const _id = req.body.id;
+    const _password = req.body.password;
+    const _email = req.body.email;
+    const _tel = req.body.tel;
+    const _joinDate = date;
+    conn.query(join.insert, [_name, _id, _password, _email, _tel, _joinDate], (err)=>{
+        if(err) console.log(err);
+        else{
+            console.log('Inserted!');
+            res.redirect('/');
+        }
+    })
 })
 
 
