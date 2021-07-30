@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>로그인</title>
+        <link rel="stylesheet" href="css/main.css"/>
+    </head>
+    <body>
+        <form method="post" action="/login">
+            <div class="container">
+              <h1>로그인</h1>
+              <b>ID</b>
+              <input type="text" placeholder="ID" name="id" required />
+          
+              <b>비밀번호 </b>
+              <input type="password" placeholder="Password" name="password" required />
+              
+              <button type="submit" class="SubmitButton">로그인</button>
+            </div>
+          </form>
+          <h3 style="color:red;"><%= message %></h3>
+    </body>
+</html>
