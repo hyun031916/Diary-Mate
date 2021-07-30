@@ -1,0 +1,24 @@
+{
+  "name": "memo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-format": "^3.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "module": "^1.2.5",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.12",
+    "prompt-password": "^1.2.0"
+  }
+}
