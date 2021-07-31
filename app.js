@@ -112,6 +112,20 @@ app.post('/login', (req, res)=>{
     })
 })
 
+//로그아웃
+app.get('/logout', (req, res)=>{
+    delete req.session.uid;
+    res.render('index', {welcome:''});
+})
+
+//글쓰기
+app.get('/new', (req, res)=>{
+    if(req.session.uid){
+        res.render('new', {name:req.session.uid});
+    }else{
+        res.send('<script type="text/javascript">alert("로그인 후 이용하실 수 있습니다."); window.location="/login";</script>')
+    }
+})
 
 app.listen(3000,()=>{
     console.log('running server at localhost......')
